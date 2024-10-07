@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <h2 class="t-center">Login</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="inputDiv">
+                <label for="name" class="username">Username</label>
+                <div class="userArea">
+                    <i class="fa-solid fa-user"></i><input type="text" name="name" id="name"
+                        placeholder="Type your username">
+                </div>
+                <hr>
+            </div>
+            <div class="inputDiv">
+                <label for="password" class="username">Password</label>
+                <div class="userArea">
+                    <i class="fa-solid fa-key"></i><input type="password" name="password" id="password"
+                        placeholder="Type your password">
+                </div>
+                <hr>
+            </div>
+
+            <span class="forgotPassword">Forgot password?</span>
+            <button type="submit" name="submit" class="btn">Login</button>
+            <div class="formBottom">
+                <ul>
+                </ul>
+                <p class="signUp">Or Sign Up using</p>
+                <p id="signUp">SIGN UP</p>
+            </div>
+        </form>
+    </div>
+
+    <?php
+    // PHP code for form handling and validation
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST["name"];
+        $password = $_POST["password"];
+
+        // Perform your validation and authentication logic here
+        // For example, checking if the username and password match a record in the database
+
+        // If validation is successful, redirect the user to another page
+        if ($username == "example_user" && $password == "example_password") {
+            header("Location: welcome.php");
+            exit();
+        } else {
+            // If validation fails, display an error message
+            echo "<script>alert('Invalid username or password. Please try again.');</script>";
+        }
+    }
+    ?>
+
+</body>
+</html>

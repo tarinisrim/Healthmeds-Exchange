@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Storage Example</title>
+</head>
+<body>
+    <form id="userDataForm">
+       
+
+        <button type="button" onclick="saveData()">Data saved</button>
+    </form>
+
+    <div id="userDataDisplay"></div>
+
+    <script>
+        function saveData() {
+            // Get values from the form
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Create an object to store user data
+            var userData = {
+                username: username,
+                password: password
+            };
+
+            // Convert the object to a string and store it in local storage
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Display the saved data
+            displaySavedData();
+        }
+
+        function displaySavedData() {
+            // Retrieve the data from local storage
+            var savedUserData = localStorage.getItem('userData');
+
+            // Display the data on the page
+            document.getElementById("userDataDisplay").innerHTML = "Saved User Data: " + savedUserData;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Medicine Timing</title>
+  <script>
+    function displayCurrentTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Format time (add leading zero if needed)
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      var currentTime = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("current-time").innerHTML = "Current Time: " + currentTime;
+
+      // Add your logic for displaying medicine timing here
+      // For example, compare the current time with the prescribed time for medicine
+    }
+
+    // Update time every second
+    setInterval(displayCurrentTime, 1000);
+  </script>
+</head>
+<body>
+  
+  <p id="current-time">Current Time: </p>
+</body>
+</html>
